@@ -1,349 +1,183 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { CTASection } from "@/components/CTASection";
+import { ProductGrid } from "@/components/ProductGrid";
+import { products } from "@/lib/products";
+
+export const metadata: Metadata = {
+  title: "ARP Ventures | Agricultural Products & Export Sourcing",
+  description:
+    "Explore ARP Ventures agricultural products, sourcing support, and quote inquiries for commercial buyers.",
+};
 
 export default function Home() {
+  const featuredProducts = products.slice(0, 3);
+
   return (
-    <main style={{ fontFamily: "Arial", padding: "20px" }}>
+    <main>
+      <section className="bg-[#18241d] px-6 py-20 text-white sm:py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#c9902f]">
+              Agricultural Trading & Sourcing
+            </p>
+            <h1 className="mt-5 max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+              ARP Ventures
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#d9e5d5]">
+              Connecting commercial buyers with agricultural products through
+              professional sourcing, clear communication, and export-oriented
+              inquiry support.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center rounded-md bg-[#c9902f] px-5 py-3 text-sm font-semibold text-[#18241d] transition hover:bg-[#e0a842] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#18241d]"
+              >
+                Explore Products
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#18241d]"
+              >
+                Request a Quote
+              </Link>
+            </div>
+          </div>
 
-      {/* HERO */}
-      <section
-        style={{
-          textAlign: "center",
-          padding: "70px 20px",
-          background: "#0f172a",
-          color: "white",
-          borderRadius: "12px",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "52px",
-            marginBottom: "15px",
-          }}
-        >
-          ARP Ventures
-        </h1>
-
-        <h2
-          style={{
-            fontSize: "26px",
-            fontWeight: "normal",
-            color: "#22c55e",
-          }}
-        >
-          International Trading, Sourcing & Professional Services
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "750px",
-            margin: "25px auto",
-            fontSize: "19px",
-            lineHeight: "1.7",
-            color: "#e2e8f0",
-          }}
-        >
-          Connecting buyers, suppliers, businesses and professionals
-          across international markets through trusted trading,
-          sourcing and professional services.
-        </p>
-
-        <div style={{ marginTop: "35px" }}>
-
-          <Link
-            href="/products"
-            style={{
-              display: "inline-block",
-              padding: "14px 28px",
-              background: "#22c55e",
-              color: "white",
-              textDecoration: "none",
-              borderRadius: "6px",
-              fontWeight: "bold",
-              margin: "8px",
-            }}
-          >
-            View Products & Services
-          </Link>
-
-          <Link
-            href="/contact"
-            style={{
-              display: "inline-block",
-              padding: "14px 28px",
-              background: "white",
-              color: "#0f172a",
-              textDecoration: "none",
-              borderRadius: "6px",
-              fontWeight: "bold",
-              margin: "8px",
-            }}
-          >
-            Request a Quote
-          </Link>
-
+          <div className="grid gap-4 sm:grid-cols-2">
+            {products.slice(0, 4).map((product) => (
+              <Link
+                key={product.slug}
+                href={`/products/${product.categorySlug}/${product.slug}`}
+                className="group overflow-hidden rounded-lg border border-white/10 bg-white/5 p-4 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#c9902f]"
+              >
+                <span className="block text-sm font-semibold text-[#c9902f]">
+                  {product.tradeSegment}
+                </span>
+                <span className="mt-2 block text-xl font-semibold text-white">
+                  {product.name}
+                </span>
+                <span className="mt-3 block text-sm leading-6 text-[#c8d7c3]">
+                  {product.shortDescription}
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-
-      {/* INTRODUCTION */}
-      <section
-        style={{
-          textAlign: "center",
-          padding: "60px 20px",
-        }}
-      >
-        <h2 style={{ fontSize: "32px" }}>
-          What We Do
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "750px",
-            margin: "20px auto",
-            fontSize: "18px",
-            lineHeight: "1.8",
-            color: "#555",
-          }}
-        >
-          ARP Ventures works across international trading, sourcing,
-          business services and education. We aim to connect
-          reliable suppliers with buyers while helping businesses
-          and professionals access suitable opportunities and
-          knowledge.
-        </p>
-      </section>
-
-
-      {/* BUSINESS AREAS */}
-      <section>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "25px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-
-          {/* AGRICULTURE */}
-          <div
-            style={{
-              width: "250px",
-              padding: "30px",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "50px" }}>
-              🌾
-            </div>
-
-            <h3>
-              Commodity Trading
-            </h3>
-
-            <p
-              style={{
-                color: "#555",
-                lineHeight: "1.6",
-              }}
-            >
-              Mangoes, rice, grains, palm oil and Palm Kernel
-              Expeller (PKE).
+      <section className="px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2f7d44]">
+              What We Do
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d] sm:text-4xl">
+              Trade-focused support for agricultural product inquiries.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-[#526158]">
+              ARP Ventures works across international trading, sourcing,
+              business services, and education. The website now focuses the
+              product catalog on agricultural commodities already represented in
+              the business content.
             </p>
           </div>
 
-
-          {/* TEXTILES */}
-          <div
-            style={{
-              width: "250px",
-              padding: "30px",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "50px" }}>
-              🧵
-            </div>
-
-            <h3>
-              Textile & General Trading
-            </h3>
-
-            <p
-              style={{
-                color: "#555",
-                lineHeight: "1.6",
-              }}
-            >
-              Towels, textiles and selected general commodities
-              based on buyer requirements.
-            </p>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Quality-focused sourcing",
+                text: "Product inquiries are handled with attention to buyer requirements and available product details.",
+              },
+              {
+                title: "Reliable communication",
+                text: "Requests can include product, quantity, destination, and specification needs for clearer follow-up.",
+              },
+              {
+                title: "Export-oriented operations",
+                text: "The catalog is structured for commercial and international buyer conversations.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-[#dfe8dc] bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-lg font-semibold text-[#18241d]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#526158]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
-
-
-          {/* FINANCE */}
-          <div
-            style={{
-              width: "250px",
-              padding: "30px",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "50px" }}>
-              💼
-            </div>
-
-            <h3>
-              Finance & Business Services
-            </h3>
-
-            <p
-              style={{
-                color: "#555",
-                lineHeight: "1.6",
-              }}
-            >
-              Financial analysis, trade finance advisory and
-              investment research.
-            </p>
-          </div>
-
-
-          {/* EDUCATION */}
-          <div
-            style={{
-              width: "250px",
-              padding: "30px",
-              background: "#f8fafc",
-              borderRadius: "12px",
-              border: "1px solid #e2e8f0",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: "50px" }}>
-              🎓
-            </div>
-
-            <h3>
-              Education & Training
-            </h3>
-
-            <p
-              style={{
-                color: "#555",
-                lineHeight: "1.6",
-              }}
-            >
-              Business, finance and international trade education
-              and professional training.
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* WHY ARP */}
-      <section
-        style={{
-          marginTop: "70px",
-          padding: "55px 30px",
-          background: "#f8fafc",
-          borderRadius: "12px",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ fontSize: "32px" }}>
-          Why ARP Ventures?
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "50px",
-            flexWrap: "wrap",
-            marginTop: "35px",
-          }}
-        >
-
-          <div>
-            <h3>🌍 Global Perspective</h3>
-            <p>Connecting opportunities across international markets.</p>
-          </div>
-
-          <div>
-            <h3>🤝 Reliable Partnerships</h3>
-            <p>Building long-term relationships with buyers and suppliers.</p>
-          </div>
-
-          <div>
-            <h3>📊 Professional Approach</h3>
-            <p>Focused on research, communication and informed decisions.</p>
-          </div>
-
         </div>
       </section>
 
-
-      {/* FINAL CTA */}
-      <section
-        style={{
-          marginTop: "60px",
-          padding: "60px 30px",
-          background: "#0f172a",
-          color: "white",
-          textAlign: "center",
-          borderRadius: "12px",
-        }}
-      >
-
-        <h2 style={{ fontSize: "32px" }}>
-          Let's Work Together
-        </h2>
-
-        <p
-          style={{
-            maxWidth: "650px",
-            margin: "20px auto",
-            lineHeight: "1.7",
-            color: "#cbd5e1",
-          }}
-        >
-          Whether you are looking for agricultural commodities,
-          sourcing opportunities, business services or professional
-          education, contact ARP Ventures to discuss your requirements.
-        </p>
-
-        <Link
-          href="/contact"
-          style={{
-            display: "inline-block",
-            marginTop: "15px",
-            padding: "14px 30px",
-            background: "#22c55e",
-            color: "white",
-            textDecoration: "none",
-            borderRadius: "6px",
-            fontWeight: "bold",
-          }}
-        >
-          Contact ARP Ventures
-        </Link>
-
+      <section className="bg-white px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2f7d44]">
+                Explore Our Products
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d] sm:text-4xl">
+                Agricultural product catalog
+              </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-[#526158]">
+                Browse current agriculture products and submit an inquiry for
+                product-specific quote support.
+              </p>
+            </div>
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center rounded-md border border-[#cddac8] px-5 py-3 text-sm font-semibold text-[#224b2f] transition hover:border-[#2f7d44] hover:bg-[#f4f8f1] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
+            >
+              View All Products
+            </Link>
+          </div>
+          <ProductGrid products={featuredProducts} />
+        </div>
       </section>
 
+      <section className="px-6 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2f7d44]">
+              About ARP Ventures
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d] sm:text-4xl">
+              A professional sourcing partner for agricultural buyers.
+            </h2>
+          </div>
+          <div>
+            <p className="text-base leading-7 text-[#526158]">
+              ARP Ventures connects buyers, suppliers, businesses, and
+              professionals across international markets through trading,
+              sourcing, and professional services. The product catalog is built
+              to expand as more verified company and product information becomes
+              available.
+            </p>
+            <Link
+              href="/about"
+              className="mt-6 inline-flex items-center justify-center rounded-md bg-[#224b2f] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2f7d44] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
+            >
+              Learn About Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        title="Looking for reliable agricultural products?"
+        text="Share the product, quantity, destination, and any requirements so ARP Ventures can review your inquiry."
+        primaryHref="/contact"
+        primaryLabel="Request a Quote"
+        secondaryHref="/products"
+        secondaryLabel="Explore Products"
+      />
     </main>
   );
 }
+

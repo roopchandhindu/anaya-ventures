@@ -1,303 +1,83 @@
-"use client";
+import type { Metadata } from "next";
+import { ContactForm } from "@/components/ContactForm";
 
-import { FormEvent, useState } from "react";
+type ContactPageProps = {
+  searchParams: Promise<{
+    product?: string | string[];
+  }>;
+};
 
-export default function Contact() {
-  const [status, setStatus] = useState("");
+export const metadata: Metadata = {
+  title: "Request a Quote",
+  description:
+    "Contact ARP Ventures for agricultural product inquiries, quantities, destinations, and quote requests.",
+};
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    setStatus("Sending...");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const data = {
-      name: formData.get("name"),
-      company: formData.get("company"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      country: formData.get("country"),
-      product: formData.get("product"),
-      quantity: formData.get("quantity"),
-      message: formData.get("message"),
-    };
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setStatus("Thank you! Your request has been sent successfully.");
-        form.reset();
-      } else {
-        setStatus(result.message || "Unable to send your request.");
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus("Something went wrong. Please try again.");
-    }
-  }
+export default async function Contact({ searchParams }: ContactPageProps) {
+  const params = await searchParams;
+  const productParam = Array.isArray(params.product)
+    ? params.product[0]
+    : params.product;
+  const initialProduct = productParam ?? "";
 
   return (
-    <main
-      style={{
-        fontFamily: "Arial",
-        padding: "20px",
-      }}
-    >
-      <section
-        style={{
-          textAlign: "center",
-          padding: "40px 20px",
-        }}
-      >
-        <h1 style={{ fontSize: "42px", marginBottom: "15px" }}>
-          Request a Quote
-        </h1>
-
-        <p
-          style={{
-            maxWidth: "700px",
-            margin: "0 auto",
-            fontSize: "18px",
-            lineHeight: "1.7",
-            color: "#555",
-          }}
-        >
-          Tell ARP Ventures what agricultural products or services
-          you are looking for and our team will get back to you.
-        </p>
+    <main>
+      <section className="bg-[#18241d] px-6 py-20 text-white lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#c9902f]">
+            Contact
+          </p>
+          <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl">
+            Request a Quote
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#d9e5d5]">
+            Tell ARP Ventures what agricultural products you are looking for,
+            including quantity, destination, and requirement details.
+          </p>
+        </div>
       </section>
 
-      <section
-        style={{
-          maxWidth: "650px",
-          margin: "0 auto",
-          padding: "35px",
-          background: "#f8fafc",
-          borderRadius: "12px",
-        }}
-      >
-        <form onSubmit={handleSubmit}>
+      <section className="px-6 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-start">
+          <div className="rounded-lg border border-[#dfe8dc] bg-white p-6 shadow-sm sm:p-8">
+            <ContactForm initialProduct={initialProduct} />
+          </div>
 
-          <label>Name</label>
-          <input
-            name="name"
-            type="text"
-            placeholder="Your full name"
-            required
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Company</label>
-          <input
-            name="company"
-            type="text"
-            placeholder="Company name"
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            required
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Phone / WhatsApp</label>
-          <input
-            name="phone"
-            type="tel"
-            placeholder="+60 12 345 6789"
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Country</label>
-          <input
-            name="country"
-            type="text"
-            placeholder="Your country"
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Product / Service Required</label>
-          <input
-            name="product"
-            type="text"
-            placeholder="Mangoes, rice, PKE, palm oil, towels, etc."
-            required
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-            }}
-          />
-
-          <label>Quantity / Requirement</label>
-          <textarea
-            name="quantity"
-            placeholder="Example: 20 metric tons"
-            rows={4}
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-              resize: "vertical",
-            }}
-          />
-
-          <label>Message</label>
-          <textarea
-            name="message"
-            placeholder="Tell us about your requirements, destination, specifications, etc."
-            rows={5}
-            required
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "8px",
-              marginBottom: "20px",
-              border: "1px solid #ccc",
-              borderRadius: "6px",
-              boxSizing: "border-box",
-              resize: "vertical",
-            }}
-          />
-
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              padding: "14px",
-              background: "#0f172a",
-              color: "white",
-              border: "none",
-              borderRadius: "6px",
-              fontSize: "17px",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
-            Send Request
-          </button>
-
-          {status && (
-            <p
-              style={{
-                marginTop: "20px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              {status}
+          <aside className="rounded-lg border border-[#dfe8dc] bg-[#fbfcf8] p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-[#18241d]">
+              Contact ARP Ventures
+            </h2>
+            <p className="mt-4 leading-7 text-[#526158]">
+              Use the form for product-specific inquiries or contact ARP
+              Ventures directly.
             </p>
-          )}
 
-        </form>
-      </section>
-
-      <section
-        style={{
-          textAlign: "center",
-          padding: "40px 20px",
-        }}
-      >
-        <h2>Contact ARP Ventures</h2>
-
-        <p
-          style={{
-            fontSize: "17px",
-            color: "#555",
-          }}
-        >
-          Email us directly at:
-        </p>
-
-        <p
-          style={{
-            fontSize: "18px",
-            fontWeight: "bold",
-          }}
-        >
-          arpventures.info@gmail.com
-        </p>
-        <a
-  href="https://wa.me/60176484306?text=Hello%20ARP%20Ventures%2C%20I%20would%20like%20to%20make%20an%20enquiry."
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-block",
-    marginTop: "15px",
-    padding: "14px 28px",
-    background: "#25D366",
-    color: "white",
-    textDecoration: "none",
-    borderRadius: "6px",
-    fontWeight: "bold",
-  }}
->
-  WhatsApp ARP Ventures
-</a>
+            <div className="mt-6 grid gap-4 text-sm">
+              <a
+                href="mailto:arpventures.info@gmail.com"
+                className="rounded-md border border-[#dfe8dc] bg-white px-4 py-3 font-semibold text-[#224b2f] transition hover:border-[#2f7d44]"
+              >
+                arpventures.info@gmail.com
+              </a>
+              <a
+                href="tel:+60176484306"
+                className="rounded-md border border-[#dfe8dc] bg-white px-4 py-3 font-semibold text-[#224b2f] transition hover:border-[#2f7d44]"
+              >
+                +60 17 648 4306
+              </a>
+              <a
+                href="https://wa.me/60176484306?text=Hello%20ARP%20Ventures%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md bg-[#1f8f52] px-5 py-3 font-semibold text-white transition hover:bg-[#187744] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
+              >
+                WhatsApp ARP Ventures
+              </a>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
   );
 }
+

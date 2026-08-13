@@ -1,161 +1,81 @@
-const products = [
-  {
-    name: "Fresh Mangoes",
-    emoji: "🥭",
-    category: "Agricultural Products",
-    description:
-      "Premium-quality Pakistani mangoes sourced for international markets and commercial buyers.",
-  },
-  {
-    name: "Premium Rice",
-    emoji: "🌾",
-    category: "Grains & Cereals",
-    description:
-      "Quality Pakistani rice suitable for wholesalers, distributors and international buyers.",
-  },
-  {
-    name: "Maize / Corn",
-    emoji: "🌽",
-    category: "Grains & Cereals",
-    description:
-      "Reliable maize supply for food, feed and industrial applications.",
-  },
-  {
-    name: "Palm Oil",
-    emoji: "🛢️",
-    category: "Edible Oils",
-    description:
-      "Commercial palm oil supply sourced for international food and industrial markets.",
-  },
-  {
-    name: "Palm Kernel Expeller",
-    emoji: "🌴",
-    category: "Animal Feed",
-    description:
-      "Quality PKE suitable for animal feed manufacturers and agricultural applications.",
-  },
-  {
-    name: "Towels & Textiles",
-    emoji: "🧺",
-    category: "Textiles",
-    description:
-      "Quality textile products supplied to international wholesalers and commercial buyers.",
-  },
-];
+import Link from "next/link";
+import type { Metadata } from "next";
+import { CTASection } from "@/components/CTASection";
+import { ProductGrid } from "@/components/ProductGrid";
+import { getPopulatedCategories } from "@/lib/products";
+
+export const metadata: Metadata = {
+  title: "Agricultural Products",
+  description:
+    "Browse ARP Ventures agricultural product catalog for commercial and international buyer inquiries.",
+};
 
 export default function Products() {
+  const populatedCategories = getPopulatedCategories();
+
   return (
-    <main className="min-h-screen bg-white">
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-green-950 px-6 py-24 text-white">
-        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-green-800 opacity-30 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-green-700 opacity-20 blur-3xl" />
-
-        <div className="relative mx-auto max-w-6xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-green-300">
-            Anaya Ventures
+    <main>
+      <section className="bg-[#18241d] px-6 py-20 text-white lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#c9902f]">
+            Product Catalog
           </p>
-
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Our Products
+          <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl">
+            Agricultural Products
           </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-green-100">
-            Connecting reliable suppliers with international buyers through
-            quality products, trusted sourcing and global trade.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#d9e5d5]">
+            Premium agricultural products sourced with a focus on quality,
+            consistency, and reliable international supply.
           </p>
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-
-        <div className="mb-12 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-green-700">
-            What We Trade
-          </p>
-
-          <h2 className="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">
-            Products We Supply
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-            We work with trusted suppliers to provide quality products for
-            wholesalers, distributors and businesses around the world.
-          </p>
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-
-              {/* Temporary Product Image */}
-              <div className="flex h-64 items-center justify-center bg-gradient-to-br from-green-50 to-gray-100 text-8xl transition duration-300 group-hover:scale-[1.02]">
-                {product.emoji}
-              </div>
-
-              {/* Product Information */}
-              <div className="p-7">
-
-                <span className="inline-block rounded-full bg-green-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-green-700">
-                  {product.category}
-                </span>
-
-                <h3 className="mt-4 text-2xl font-bold text-gray-900">
-                  {product.name}
-                </h3>
-
-                <p className="mt-3 min-h-[72px] leading-7 text-gray-600">
-                  {product.description}
-                </p>
-
-                <div className="mt-6 border-t border-gray-100 pt-5">
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center font-semibold text-green-800 transition hover:text-green-600"
-                  >
-                    Enquire About Product
-                    <span className="ml-2 transition group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
-                </div>
-
-              </div>
+      <section className="px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2f7d44]">
+                Current Categories
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d]">
+                Products available for inquiry
+              </h2>
             </div>
-          ))}
+            <Link
+              href="/products/agriculture"
+              className="inline-flex items-center justify-center rounded-md border border-[#cddac8] px-5 py-3 text-sm font-semibold text-[#224b2f] transition hover:border-[#2f7d44] hover:bg-[#f4f8f1] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
+            >
+              View Agriculture
+            </Link>
+          </div>
+
+          <div className="grid gap-12">
+            {populatedCategories.map((category) => (
+              <section key={category.slug}>
+                <div className="mb-6 flex flex-col gap-3 border-l-4 border-[#c9902f] pl-5">
+                  <h3 className="text-2xl font-semibold text-[#18241d]">
+                    {category.name}
+                  </h3>
+                  <p className="max-w-2xl leading-7 text-[#526158]">
+                    {category.description}
+                  </p>
+                </div>
+                <ProductGrid products={category.products} />
+              </section>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gray-50 px-6 py-20">
-        <div className="mx-auto max-w-4xl rounded-3xl bg-green-900 px-8 py-14 text-center text-white shadow-xl sm:px-14">
-
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            Looking for a Reliable Trading Partner?
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-green-100">
-            Tell us what product you are looking for, your required quantity
-            and destination. Our team will be happy to discuss your
-            requirements.
-          </p>
-
-          <a
-            href="/contact"
-            className="mt-8 inline-block rounded-xl bg-white px-7 py-3.5 font-semibold text-green-900 shadow-sm transition hover:bg-green-50"
-          >
-            Contact Us
-          </a>
-
-        </div>
-      </section>
-
+      <CTASection
+        title="Looking for a reliable trading partner?"
+        text="Tell us which product you need, the approximate quantity, and destination so the inquiry can be reviewed clearly."
+        primaryHref="/contact"
+        primaryLabel="Contact Us"
+        secondaryHref="/about"
+        secondaryLabel="About ARP Ventures"
+      />
     </main>
   );
 }
+
