@@ -87,50 +87,101 @@ export const categories: ProductCategory[] = [
     description:
       "Diverse range of services and products to meet various business and personal needs.",
   },
-];
-
-export const products: Product[] = [
+];export const products: Product[] = [
   {
-    slug: "mangoes",
-    name: "Fresh Mangoes",
+    slug: "palm-kernel-expeller",
+    name: "Palm Kernel Expeller (PKE)",
     categorySlug: "agriculture",
-    tradeSegment: "Agricultural Products",
+    tradeSegment: "Animal Feed",
     shortDescription:
-      "Premium-quality Pakistani mangoes sourced for international markets and commercial buyers.",
+      "Quality Malaysian PKE for animal feed manufacturers, distributors, and international commodity buyers.",
     description:
-      "Fresh mangoes are available for commercial buyers seeking Pakistani agricultural products for international markets. Inquiry details such as quantity, destination, preferred handling, and packaging requirements can be confirmed through the quote process.",
-    image: "/products/mangoes.jpg",
-    imageAlt: "Fresh mangoes for agricultural product inquiries",
-    types: [],
-    specifications: [{ label: "Origin", value: "Pakistan" }],
+      "Palm Kernel Expeller (PKE) sourced from Malaysia for commercial animal feed and agricultural applications. Buyers can enquire based on quantity, destination, packaging, specifications, and preferred delivery terms.",
+    image: "/products/pke.jpg",
+    imageAlt: "Palm Kernel Expeller (PKE) for international trade",
+    types: ["Feed Grade", "Bulk Supply"],
+    specifications: [
+      { label: "Origin", value: "Malaysia" },
+      { label: "Application", value: "Animal Feed" },
+    ],
+    applications: [
+      "Animal feed",
+      "Feed manufacturing",
+      "Agricultural applications",
+    ],
     features: [
-      "Sourced for international markets",
-      "Suitable for commercial buyers",
+      "Malaysia origin",
+      "Commercial quantities",
+      "International buyer inquiries",
     ],
     visual: {
-      label: "Mangoes",
-      from: "#fff3cf",
-      to: "#d87b2a",
-      accent: "#256d39",
+      label: "PKE",
+      from: "#e7d0a3",
+      to: "#7a5435",
+      accent: "#2d5f3a",
     },
   },
+
+  {
+    slug: "palm-oil",
+    name: "Palm Oil",
+    categorySlug: "agriculture",
+    tradeSegment: "Edible Oils",
+    shortDescription:
+      "Commercial Malaysian palm oil supply for food, manufacturing, and international markets.",
+    description:
+      "Palm oil sourced from Malaysia for commercial buyers, distributors, manufacturers, and international markets. Product grade, quantity, packaging, destination, and delivery terms can be discussed during the quotation process.",
+    image: "/products/palm-oil.jpg",
+    imageAlt: "Malaysian palm oil for international trade",
+    types: ["Edible Oil", "Industrial Applications"],
+    specifications: [
+      { label: "Origin", value: "Malaysia" },
+      { label: "Category", value: "Palm Oil" },
+    ],
+    applications: [
+      "Food manufacturing",
+      "Edible oil distribution",
+      "Industrial applications",
+    ],
+    features: [
+      "Malaysia origin",
+      "Commercial supply",
+      "International buyer inquiries",
+    ],
+    visual: {
+      label: "Palm Oil",
+      from: "#ffe5b7",
+      to: "#b15f2b",
+      accent: "#234f34",
+    },
+  },
+
   {
     slug: "rice",
     name: "Premium Rice",
     categorySlug: "agriculture",
     tradeSegment: "Grains & Cereals",
     shortDescription:
-      "Quality Pakistani rice suitable for wholesalers, distributors and international buyers.",
+      "Pakistani Basmati and non-Basmati rice for wholesalers, distributors, and international buyers.",
     description:
-      "Premium rice is offered for wholesalers, distributors, and international buyers seeking quality Pakistani grain supply. Specific variety, grade, volume, and destination details can be discussed during inquiry.",
+      "Premium Pakistani rice available for international commercial buyers. Basmati and non-Basmati varieties can be discussed according to grade, packaging, quantity, destination, and buyer requirements.",
     image: "/products/rice.jpg",
-    imageAlt: "Premium rice grains for commercial buyer inquiries",
-    types: [],
-    specifications: [{ label: "Origin", value: "Pakistan" }],
+    imageAlt: "Pakistani premium rice for international trade",
+    types: ["Basmati", "Non-Basmati"],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Rice" },
+    ],
+    applications: [
+      "Wholesale distribution",
+      "Food service",
+      "Retail",
+      "International markets",
+    ],
     features: [
-      "Suitable for wholesalers",
-      "Suitable for distributors",
-      "Available for international buyer inquiries",
+      "Pakistan origin",
+      "Basmati and non-Basmati options",
+      "Commercial quantities",
     ],
     visual: {
       label: "Rice",
@@ -139,20 +190,282 @@ export const products: Product[] = [
       accent: "#315a39",
     },
   },
+
+  {
+    slug: "spices",
+    name: "Spices & Herbs",
+    categorySlug: "agriculture",
+    tradeSegment: "Spices & Food Ingredients",
+    shortDescription:
+      "Pakistani spices and herbs for food manufacturers, wholesalers, distributors, and international buyers.",
+    description:
+      "A range of Pakistani spices and herbs available for commercial and international buyers. Product selection, grade, packaging, quantity, and destination can be discussed according to buyer requirements.",
+    imageAlt: "Pakistani spices and herbs for international trade",
+    types: [
+      "Red Chilli",
+      "Cumin",
+      "Turmeric",
+      "Coriander",
+      "Fennel",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Spices & Herbs" },
+    ],
+    applications: [
+      "Food manufacturing",
+      "Wholesale",
+      "Restaurants",
+      "Retail",
+    ],
+    features: [
+      "Pakistan origin",
+      "Multiple spice varieties",
+      "Commercial buyer inquiries",
+    ],
+    visual: {
+      label: "Spices",
+      from: "#f3d3a5",
+      to: "#9d4d2a",
+      accent: "#35633c",
+    },
+  },
+
+  {
+    slug: "mangoes",
+    name: "Fresh Mangoes",
+    categorySlug: "agriculture",
+    tradeSegment: "Fresh Fruits",
+    shortDescription:
+      "Premium Pakistani mangoes for international fruit importers, wholesalers, and distributors.",
+    description:
+      "Fresh Pakistani mangoes sourced for international markets. Variety, quantity, packaging, harvest availability, destination, and handling requirements can be discussed during the inquiry process.",
+    image: "/products/mangoes.jpg",
+    imageAlt: "Fresh Pakistani mangoes for international trade",
+    types: ["Commercial Grade", "Export Grade"],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Fresh Fruit" },
+    ],
+    applications: [
+      "Fruit wholesalers",
+      "Retail distribution",
+      "Food service",
+      "International markets",
+    ],
+    features: [
+      "Pakistan origin",
+      "Seasonal availability",
+      "Commercial export inquiries",
+    ],
+    visual: {
+      label: "Mangoes",
+      from: "#fff3cf",
+      to: "#d87b2a",
+      accent: "#256d39",
+    },
+  },
+
+  {
+    slug: "oranges-kinnow",
+    name: "Oranges & Kinnow",
+    categorySlug: "agriculture",
+    tradeSegment: "Fresh Fruits",
+    shortDescription:
+      "Fresh Pakistani oranges and Kinnow for international fruit buyers and distributors.",
+    description:
+      "Fresh Pakistani oranges and Kinnow sourced for commercial markets. Availability, grade, packaging, quantity, season, and destination requirements can be discussed through the quotation process.",
+    types: ["Kinnow", "Fresh Oranges"],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Fresh Fruit" },
+    ],
+    applications: [
+      "Fruit wholesalers",
+      "Retail distribution",
+      "Food service",
+    ],
+    features: [
+      "Pakistan origin",
+      "Seasonal supply",
+      "Commercial quantities",
+    ],
+    visual: {
+      label: "Kinnow",
+      from: "#ffe0a8",
+      to: "#e47b20",
+      accent: "#2f6d44",
+    },
+  },
+
+  {
+    slug: "fresh-vegetables",
+    name: "Fresh Vegetables",
+    categorySlug: "agriculture",
+    tradeSegment: "Fresh Produce",
+    shortDescription:
+      "Fresh Pakistani vegetables including onions and potatoes for commercial and international buyers.",
+    description:
+      "Fresh Pakistani vegetables available for commercial buyers and international markets. Product selection, season, grade, packaging, quantity, and destination can be confirmed during inquiry.",
+    types: [
+      "Onions",
+      "Potatoes",
+      "Seasonal Vegetables",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Fresh Produce" },
+    ],
+    applications: [
+      "Wholesale distribution",
+      "Retail",
+      "Food service",
+      "Food processing",
+    ],
+    features: [
+      "Seasonal availability",
+      "Commercial quantities",
+      "International buyer inquiries",
+    ],
+    visual: {
+      label: "Vegetables",
+      from: "#dcebcf",
+      to: "#6b8e45",
+      accent: "#28583a",
+    },
+  },
+
+  {
+    slug: "meat",
+    name: "Halal Meat",
+    categorySlug: "agriculture",
+    tradeSegment: "Meat & Food Products",
+    shortDescription:
+      "Halal meat supply for approved international buyers, distributors, and food businesses.",
+    description:
+      "Halal meat inquiries can be supported for suitable international markets, subject to applicable import, veterinary, food safety, halal certification, and destination-country requirements.",
+    types: [
+      "Beef",
+      "Buffalo Meat",
+      "Mutton",
+      "Goat Meat",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Meat Products" },
+    ],
+    applications: [
+      "Food service",
+      "Wholesale",
+      "Food processing",
+      "Retail",
+    ],
+    features: [
+      "Halal market focus",
+      "Commercial buyer inquiries",
+      "Subject to destination requirements",
+    ],
+    visual: {
+      label: "Halal Meat",
+      from: "#ead6ce",
+      to: "#9d5a4f",
+      accent: "#28563a",
+    },
+  },
+
+  {
+    slug: "seafood",
+    name: "Seafood",
+    categorySlug: "agriculture",
+    tradeSegment: "Seafood",
+    shortDescription:
+      "Fish and seafood products for commercial importers, distributors, and international markets.",
+    description:
+      "Seafood inquiries can be handled for commercial buyers seeking fish and other seafood products. Product type, processing, freezing, packaging, quantity, destination, and applicable import requirements can be reviewed.",
+    types: [
+      "Fish",
+      "Shrimp & Prawns",
+      "Frozen Seafood",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Seafood" },
+    ],
+    applications: [
+      "Wholesale distribution",
+      "Food service",
+      "Food processing",
+    ],
+    features: [
+      "Commercial supply inquiries",
+      "Fresh or frozen requirements can be discussed",
+      "International markets",
+    ],
+    visual: {
+      label: "Seafood",
+      from: "#d7e7e9",
+      to: "#477e86",
+      accent: "#285b45",
+    },
+  },
+
+  {
+    slug: "grains-pulses",
+    name: "Grains & Pulses",
+    categorySlug: "agriculture",
+    tradeSegment: "Grains & Pulses",
+    shortDescription:
+      "Pakistani grains, pulses, and agricultural commodities for commercial buyers.",
+    description:
+      "Grains and pulses can be sourced for wholesalers, distributors, food manufacturers, and international buyers. Product, grade, quantity, packaging, and destination requirements can be discussed during inquiry.",
+    types: [
+      "Maize / Corn",
+      "Chickpeas",
+      "Lentils",
+      "Other Pulses",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Grains & Pulses" },
+    ],
+    applications: [
+      "Food manufacturing",
+      "Wholesale",
+      "Retail",
+      "Agricultural markets",
+    ],
+    features: [
+      "Commercial quantities",
+      "Multiple commodity options",
+      "International buyer inquiries",
+    ],
+    visual: {
+      label: "Grains",
+      from: "#eee0b9",
+      to: "#9b7b42",
+      accent: "#38603e",
+    },
+  },
+
   {
     slug: "maize-corn",
     name: "Maize / Corn",
     categorySlug: "agriculture",
     tradeSegment: "Grains & Cereals",
     shortDescription:
-      "Reliable maize supply for food, feed and industrial applications.",
+      "Reliable maize and corn supply for food, feed, and industrial applications.",
     description:
       "Maize and corn inquiries can be handled for buyers seeking agricultural supply for food, feed, or industrial applications. Requirements can be reviewed based on quantity, destination, and intended use.",
-    image: "/products/maize-corn.jpg",
-    imageAlt: "Maize and corn for food, feed and industrial inquiries",
-    types: [],
-    applications: ["Food", "Feed", "Industrial applications"],
-    features: ["Suitable for food, feed and industrial inquiries"],
+    types: ["Food Grade", "Feed Grade"],
+    applications: [
+      "Food",
+      "Animal Feed",
+      "Industrial Applications",
+    ],
+    features: [
+      "Suitable for food and feed",
+      "Commercial supply inquiries",
+    ],
     visual: {
       label: "Maize",
       from: "#fff1b8",
@@ -160,66 +473,44 @@ export const products: Product[] = [
       accent: "#2e6438",
     },
   },
+
   {
-    slug: "palm-oil",
-    name: "Palm Oil",
+    slug: "textiles-towels",
+    name: "Towels & Home Textiles",
     categorySlug: "agriculture",
-    tradeSegment: "Edible Oils",
+    tradeSegment: "Textiles",
     shortDescription:
-      "Commercial palm oil supply sourced for international food and industrial markets.",
+      "Pakistani cotton towels and home textile products for international buyers.",
     description:
-      "Palm oil inquiries are supported for commercial buyers serving international food and industrial markets. Product requirements, quantity, destination, and packaging needs can be reviewed through the quote process.",
-    image: "/products/palm-oil.jpg",
-    imageAlt: "Palm oil for commercial food and industrial market inquiries",
-    types: [],
-    applications: ["Food markets", "Industrial markets"],
-    features: ["Commercial supply inquiries supported"],
+      "Pakistani towels and selected home textile products can be sourced for wholesalers, distributors, hospitality businesses, and international buyers. Specifications, sizes, GSM, packaging, and quantities can be discussed.",
+    image: "/products/towels.jpg",
+    imageAlt: "Pakistani towels and home textiles for international trade",
+    types: [
+      "Bath Towels",
+      "Hand Towels",
+      "Kitchen Towels",
+      "Home Textiles",
+    ],
+    specifications: [
+      { label: "Origin", value: "Pakistan" },
+      { label: "Category", value: "Textiles" },
+    ],
+    applications: [
+      "Hotels",
+      "Retail",
+      "Wholesale",
+      "Hospitality",
+    ],
+    features: [
+      "Cotton textile products",
+      "Commercial quantities",
+      "Custom specifications can be discussed",
+    ],
     visual: {
-      label: "Palm Oil",
-      from: "#ffe5b7",
-      to: "#b15f2b",
-      accent: "#234f34",
-    },
-  },
-  {
-    slug: "palm-kernel-expeller",
-    name: "Palm Kernel Expeller (PKE)",
-    categorySlug: "agriculture",
-    tradeSegment: "Animal Feed",
-    shortDescription:
-      "Quality PKE suitable for animal feed manufacturers and agricultural applications.",
-    description:
-      "Palm Kernel Expeller is available for inquiries from animal feed manufacturers and agricultural buyers. Quantity, destination, and product requirement details can be submitted through the quote form.",
-    image: "/products/pke.jpg",
-    imageAlt: "Palm Kernel Expeller for animal feed and agricultural inquiries",
-    types: [],
-    applications: ["Animal feed manufacturers", "Agricultural applications"],
-    features: ["Suitable for feed and agriculture-related inquiries"],
-    visual: {
-      label: "PKE",
-      from: "#e7d0a3",
-      to: "#7a5435",
-      accent: "#2d5f3a",
-    },
-  },
-  {
-    slug: "agricultural-mix",
-    name: "Agricultural Mix",
-    categorySlug: "agriculture",
-    tradeSegment: "Mixed Products",
-    shortDescription:
-      "Curated mix of premium agricultural products for diverse commercial needs.",
-    description:
-      "Agricultural mix bundles are available for buyers seeking diverse product combinations for international markets. Specific product composition, quantity, destination, and packaging can be customized through inquiry.",
-    image: "/products/mix.png",
-    imageAlt: "Agricultural mix product bundle for commercial inquiries",
-    types: [],
-    features: ["Customizable product mix", "International market ready"],
-    visual: {
-      label: "Mix",
-      from: "#f5e6d3",
-      to: "#9b7c5c",
-      accent: "#2f6d44",
+      label: "Textiles",
+      from: "#f0eee7",
+      to: "#a6a49b",
+      accent: "#356342",
     },
   },
 ];

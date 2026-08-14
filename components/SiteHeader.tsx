@@ -38,7 +38,7 @@ function navClass(active: boolean) {
 export function SiteHeader({ productLinks }: SiteHeaderProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const productsActive = isActive(pathname, "/products");
+  const tradeActive = isActive(pathname, "/products");
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#dfe8dc] bg-white/95 backdrop-blur">
@@ -70,18 +70,18 @@ export function SiteHeader({ productLinks }: SiteHeaderProps) {
           <div className="group relative">
             <button
               type="button"
-              className={navClass(productsActive)}
+              className={navClass(tradeActive)}
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Products
+              trade
             </button>
             <div className="invisible absolute left-0 top-full w-56 translate-y-2 rounded-lg border border-[#dfe8dc] bg-white p-2 opacity-0 shadow-xl transition duration-150 group-focus-within:visible group-focus-within:translate-y-1 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-1 group-hover:opacity-100">
               <Link
                 href="/products"
                 className="block rounded-md px-3 py-2 text-sm font-semibold text-[#405249] transition hover:bg-[#f2f6ef] hover:text-[#224b2f] focus:outline-none focus:ring-2 focus:ring-[#c9902f]"
               >
-                All Products
+                Trade Catalogue
               </Link>
               {productLinks.map((link) => (
                 <Link
@@ -162,10 +162,10 @@ export function SiteHeader({ productLinks }: SiteHeaderProps) {
           <div className="rounded-lg bg-[#f6f8f3] p-2">
             <Link
               href="/products"
-              className={navClass(productsActive)}
+              className={navClass(tradeActive)}
               onClick={() => setMenuOpen(false)}
             >
-              Products
+              Trade
             </Link>
             <div className="mt-2 grid gap-1 border-l border-[#cddac8] pl-3">
               <Link
@@ -173,7 +173,7 @@ export function SiteHeader({ productLinks }: SiteHeaderProps) {
                 className="rounded-md px-3 py-2 text-sm font-semibold text-[#526158] transition hover:bg-white hover:text-[#224b2f]"
                 onClick={() => setMenuOpen(false)}
               >
-                All Products
+                Trade Catalogue
               </Link>
               {productLinks.map((link) => (
                 <Link
