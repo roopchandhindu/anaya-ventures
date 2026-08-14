@@ -1,4 +1,3 @@
-```tsx
 "use client";
 
 import { FormEvent, useState } from "react";
@@ -7,16 +6,11 @@ type ContactFormProps = {
   initialProduct?: string;
 };
 
-const inputClass =
-  "mt-2 w-full rounded-md border border-[#cddac8] bg-white px-4 py-3 text-sm text-[#18241d] outline-none transition placeholder:text-[#8a958d] focus:border-[#2f7d44] focus:ring-2 focus:ring-[#c9902f]/30";
-
-const labelClass = "block text-sm font-semibold text-[#405249]";
-
 export function ContactForm({
   initialProduct = "",
 }: ContactFormProps) {
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   async function handleSubmit(
@@ -41,9 +35,7 @@ export function ContactForm({
 
       if (!response.ok) {
         throw new Error(
-          result?.error ||
-            result?.message ||
-            "Unable to send your inquiry.",
+          result?.error || "Unable to send your inquiry.",
         );
       }
 
@@ -60,11 +52,15 @@ export function ContactForm({
     }
   }
 
+  const inputClass =
+    "mt-2 w-full rounded-md border border-[#cddac8] bg-white px-4 py-3 text-sm text-[#18241d] outline-none transition focus:border-[#2f7d44] focus:ring-2 focus:ring-[#c9902f]/30";
+
+  const labelClass =
+    "block text-sm font-semibold text-[#405249]";
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-8"
-    >
+    <form onSubmit={handleSubmit} className="space-y-8">
+
       {/* Buyer Information */}
       <section>
         <h2 className="text-xl font-semibold text-[#18241d]">
@@ -72,11 +68,9 @@ export function ContactForm({
         </h2>
 
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
+
           <div>
-            <label
-              htmlFor="name"
-              className={labelClass}
-            >
+            <label htmlFor="name" className={labelClass}>
               Full Name *
             </label>
 
@@ -92,10 +86,7 @@ export function ContactForm({
           </div>
 
           <div>
-            <label
-              htmlFor="company"
-              className={labelClass}
-            >
+            <label htmlFor="company" className={labelClass}>
               Company
             </label>
 
@@ -110,10 +101,7 @@ export function ContactForm({
           </div>
 
           <div>
-            <label
-              htmlFor="email"
-              className={labelClass}
-            >
+            <label htmlFor="email" className={labelClass}>
               Email *
             </label>
 
@@ -129,10 +117,7 @@ export function ContactForm({
           </div>
 
           <div>
-            <label
-              htmlFor="phone"
-              className={labelClass}
-            >
+            <label htmlFor="phone" className={labelClass}>
               Phone / WhatsApp
             </label>
 
@@ -141,16 +126,13 @@ export function ContactForm({
               name="phone"
               type="tel"
               autoComplete="tel"
-              placeholder="+92 / +60 / +971 ..."
+              placeholder="+92 / +60 / +971"
               className={inputClass}
             />
           </div>
 
           <div className="sm:col-span-2">
-            <label
-              htmlFor="country"
-              className={labelClass}
-            >
+            <label htmlFor="country" className={labelClass}>
               Buyer Country *
             </label>
 
@@ -160,25 +142,25 @@ export function ContactForm({
               type="text"
               required
               autoComplete="country-name"
-              placeholder="e.g. Pakistan, UAE, Indonesia"
+              placeholder="Pakistan, UAE, Indonesia, etc."
               className={inputClass}
             />
           </div>
+
         </div>
       </section>
 
       {/* Trade Requirement */}
       <section className="border-t border-[#dfe8dc] pt-7">
+
         <h2 className="text-xl font-semibold text-[#18241d]">
           Trade Requirement
         </h2>
 
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
+
           <div>
-            <label
-              htmlFor="product"
-              className={labelClass}
-            >
+            <label htmlFor="product" className={labelClass}>
               Product *
             </label>
 
@@ -188,16 +170,13 @@ export function ContactForm({
               type="text"
               required
               defaultValue={initialProduct}
-              placeholder="e.g. Palm Kernel Expeller (PKE)"
+              placeholder="Palm Kernel Expeller (PKE)"
               className={inputClass}
             />
           </div>
 
           <div>
-            <label
-              htmlFor="quantity"
-              className={labelClass}
-            >
+            <label htmlFor="quantity" className={labelClass}>
               Quantity *
             </label>
 
@@ -206,7 +185,7 @@ export function ContactForm({
               name="quantity"
               type="text"
               required
-              placeholder="e.g. 10 FCL / 250 MT"
+              placeholder="10 FCL / 250 MT"
               className={inputClass}
             />
           </div>
@@ -224,7 +203,7 @@ export function ContactForm({
               name="destination"
               type="text"
               required
-              placeholder="e.g. Karachi Port, Pakistan"
+              placeholder="Karachi Port, Pakistan"
               className={inputClass}
             />
           </div>
@@ -247,11 +226,18 @@ export function ContactForm({
               <option value="" disabled>
                 Select delivery term
               </option>
-              <option value="FOB">FOB</option>
+
+              <option value="FOB">
+                FOB
+              </option>
+
               <option value="CFR / CNF">
                 CFR / CNF
               </option>
-              <option value="CIF">CIF</option>
+
+              <option value="CIF">
+                CIF
+              </option>
             </select>
           </div>
 
@@ -272,16 +258,23 @@ export function ContactForm({
               <option value="">
                 Select packaging
               </option>
-              <option value="Bulk">Bulk</option>
+
+              <option value="Bulk">
+                Bulk
+              </option>
+
               <option value="Jumbo Bags">
                 Jumbo Bags
               </option>
+
               <option value="25kg Bags">
                 25kg Bags
               </option>
+
               <option value="50kg Bags">
                 50kg Bags
               </option>
+
               <option value="Buyer Specification">
                 Buyer Specification
               </option>
@@ -305,25 +298,31 @@ export function ContactForm({
               <option value="">
                 Select if known
               </option>
+
               <option value="LC">
                 Letter of Credit (LC)
               </option>
+
               <option value="TT">
                 Telegraphic Transfer (TT)
               </option>
+
               <option value="LC / TT">
                 LC / TT
               </option>
+
               <option value="To be discussed">
                 To be discussed
               </option>
             </select>
           </div>
+
         </div>
       </section>
 
       {/* Additional Requirements */}
       <section className="border-t border-[#dfe8dc] pt-7">
+
         <label
           htmlFor="message"
           className={labelClass}
@@ -336,21 +335,24 @@ export function ContactForm({
           name="message"
           rows={6}
           placeholder="Include grade, specifications, target price, certifications, shipment requirements, or any other details."
-          className={`${inputClass} resize-y`}
+          className={
+            inputClass + " resize-y"
+          }
         />
 
         <p className="mt-2 text-xs leading-5 text-[#7a867d]">
-          The more details you provide, the more accurately
-          we can review your quotation request.
+          The more information you provide, the more accurately
+          we can prepare your quotation.
         </p>
       </section>
 
       {/* Submit */}
       <section className="border-t border-[#dfe8dc] pt-7">
+
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex w-full items-center justify-center rounded-md bg-[#224b2f] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#2f7d44] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center rounded-md bg-[#224b2f] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#2f7d44] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading
             ? "Sending Inquiry..."
@@ -359,33 +361,33 @@ export function ContactForm({
 
         <p className="mt-3 text-center text-xs leading-5 text-[#667467]">
           By submitting this form, you are requesting a
-          commercial quotation. Final pricing, availability,
-          and terms are subject to confirmation.
+          commercial quotation. Final pricing and terms are
+          subject to product availability and confirmation.
         </p>
       </section>
 
-      {/* Success Message */}
+      {/* Success */}
       {submitted && (
         <div
-          className="rounded-md border border-[#b8d5bd] bg-[#edf7ef] px-4 py-4 text-sm font-medium leading-6 text-[#245f34]"
           role="status"
+          className="rounded-md border border-[#b8d5bd] bg-[#edf7ef] px-4 py-4 text-sm font-medium text-[#245f34]"
         >
           Thank you. Your quote request has been received.
-          ARP Ventures will review your requirement and
-          contact you shortly.
+          ARP Ventures will review your requirement and contact
+          you shortly.
         </div>
       )}
 
-      {/* Error Message */}
+      {/* Error */}
       {error && (
         <div
-          className="rounded-md border border-[#e4b9b9] bg-[#fff3f3] px-4 py-4 text-sm font-medium leading-6 text-[#9b3535]"
           role="alert"
+          className="rounded-md border border-[#e4b9b9] bg-[#fff3f3] px-4 py-4 text-sm font-medium text-[#9b3535]"
         >
           {error}
         </div>
       )}
+
     </form>
   );
 }
-```
