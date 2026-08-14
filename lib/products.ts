@@ -41,11 +41,11 @@ export type ProductCategoryWithProducts = ProductCategory & {
 export const categories: ProductCategory[] = [
   {
     slug: "agriculture",
-    name: "Agriculture",
+    name: "Import & Export",
     shortDescription:
-      "Agricultural commodities for commercial and international buyers.",
+      "International import and export of commodities, agricultural products, food products, and other traded goods.",
     description:
-      "Premium agricultural products sourced with a focus on quality, consistency, and reliable international supply.",
+      "ARP Ventures facilitates international trade and sourcing opportunities across a growing range of commodities and products, connecting buyers and suppliers through a global network and reliable commercial trade support.",
   },
   {
     slug: "financial",
@@ -87,21 +87,23 @@ export const categories: ProductCategory[] = [
     description:
       "Diverse range of services and products to meet various business and personal needs.",
   },
-];export const products: Product[] = [
+];
+
+export const products: Product[] = [
   {
     slug: "palm-kernel-expeller",
     name: "Palm Kernel Expeller (PKE)",
     categorySlug: "agriculture",
     tradeSegment: "Animal Feed",
     shortDescription:
-      "Quality Malaysian PKE for animal feed manufacturers, distributors, and international commodity buyers.",
+      "Quality Palm Kernel Expeller (PKE) for animal feed manufacturers, distributors, and international commodity buyers.",
     description:
-      "Palm Kernel Expeller (PKE) sourced from Malaysia for commercial animal feed and agricultural applications. Buyers can enquire based on quantity, destination, packaging, specifications, and preferred delivery terms.",
+      "Palm Kernel Expeller (PKE) sourced through international supplier networks for commercial animal feed and agricultural applications. Supply can be arranged according to quantity, destination, packaging, specifications, and preferred delivery terms.",
     image: "/products/pke.jpg",
     imageAlt: "Palm Kernel Expeller (PKE) for international trade",
     types: ["Feed Grade", "Bulk Supply"],
     specifications: [
-      { label: "Origin", value: "Malaysia" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Application", value: "Animal Feed" },
     ],
     applications: [
@@ -110,9 +112,9 @@ export const categories: ProductCategory[] = [
       "Agricultural applications",
     ],
     features: [
-      "Malaysia origin",
+      "International sourcing",
       "Commercial quantities",
-      "International buyer inquiries",
+      "Buyer-specific requirements",
     ],
     visual: {
       label: "PKE",
@@ -128,14 +130,14 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Edible Oils",
     shortDescription:
-      "Commercial Malaysian palm oil supply for food, manufacturing, and international markets.",
+      "Commercial palm oil supply for food, manufacturing, distribution, and international markets.",
     description:
-      "Palm oil sourced from Malaysia for commercial buyers, distributors, manufacturers, and international markets. Product grade, quantity, packaging, destination, and delivery terms can be discussed during the quotation process.",
+      "Palm oil sourced through qualified international suppliers for commercial buyers, distributors, manufacturers, and international markets. Product grade, quantity, packaging, destination, and delivery terms can be discussed during the quotation process.",
     image: "/products/palm-oil.jpg",
-    imageAlt: "Malaysian palm oil for international trade",
+    imageAlt: "Palm oil for international trade",
     types: ["Edible Oil", "Industrial Applications"],
     specifications: [
-      { label: "Origin", value: "Malaysia" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Palm Oil" },
     ],
     applications: [
@@ -144,9 +146,9 @@ export const categories: ProductCategory[] = [
       "Industrial applications",
     ],
     features: [
-      "Malaysia origin",
+      "International sourcing",
       "Commercial supply",
-      "International buyer inquiries",
+      "Buyer-specific specifications",
     ],
     visual: {
       label: "Palm Oil",
@@ -162,14 +164,14 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Grains & Cereals",
     shortDescription:
-      "Pakistani Basmati and non-Basmati rice for wholesalers, distributors, and international buyers.",
+      "Premium Basmati and non-Basmati rice for wholesalers, distributors, food businesses, and international buyers.",
     description:
-      "Premium Pakistani rice available for international commercial buyers. Basmati and non-Basmati varieties can be discussed according to grade, packaging, quantity, destination, and buyer requirements.",
+      "Premium rice sourced through international supplier networks for commercial buyers. Basmati and non-Basmati varieties can be discussed according to grade, packaging, quantity, destination, and buyer requirements.",
     image: "/products/rice.jpg",
-    imageAlt: "Pakistani premium rice for international trade",
+    imageAlt: "Premium rice for international trade",
     types: ["Basmati", "Non-Basmati"],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Rice" },
     ],
     applications: [
@@ -179,7 +181,7 @@ export const categories: ProductCategory[] = [
       "International markets",
     ],
     features: [
-      "Pakistan origin",
+      "Global supplier network",
       "Basmati and non-Basmati options",
       "Commercial quantities",
     ],
@@ -197,10 +199,9 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Spices & Food Ingredients",
     shortDescription:
-      "Pakistani spices and herbs for food manufacturers, wholesalers, distributors, and international buyers.",
+      "Spices and herbs for food manufacturers, wholesalers, distributors, and international buyers.",
     description:
-      "A range of Pakistani spices and herbs available for commercial and international buyers. Product selection, grade, packaging, quantity, and destination can be discussed according to buyer requirements.",
-    imageAlt: "Pakistani spices and herbs for international trade",
+      "A range of spices and herbs available through international sourcing networks. Product selection, grade, packaging, quantity, origin, and destination can be discussed according to buyer requirements.",
     types: [
       "Red Chilli",
       "Cumin",
@@ -209,7 +210,7 @@ export const categories: ProductCategory[] = [
       "Fennel",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Spices & Herbs" },
     ],
     applications: [
@@ -219,7 +220,7 @@ export const categories: ProductCategory[] = [
       "Retail",
     ],
     features: [
-      "Pakistan origin",
+      "International supplier network",
       "Multiple spice varieties",
       "Commercial buyer inquiries",
     ],
@@ -237,14 +238,14 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Fresh Fruits",
     shortDescription:
-      "Premium Pakistani mangoes for international fruit importers, wholesalers, and distributors.",
+      "Fresh mangoes for international fruit importers, wholesalers, retailers, and distributors.",
     description:
-      "Fresh Pakistani mangoes sourced for international markets. Variety, quantity, packaging, harvest availability, destination, and handling requirements can be discussed during the inquiry process.",
+      "Fresh mangoes sourced according to international buyer requirements. Variety, quantity, packaging, harvest availability, origin, destination, and handling requirements can be discussed during the inquiry process.",
     image: "/products/mangoes.jpg",
-    imageAlt: "Fresh Pakistani mangoes for international trade",
+    imageAlt: "Fresh mangoes for international trade",
     types: ["Commercial Grade", "Export Grade"],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Fresh Fruit" },
     ],
     applications: [
@@ -254,8 +255,8 @@ export const categories: ProductCategory[] = [
       "International markets",
     ],
     features: [
-      "Pakistan origin",
       "Seasonal availability",
+      "International sourcing",
       "Commercial export inquiries",
     ],
     visual: {
@@ -272,12 +273,12 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Fresh Fruits",
     shortDescription:
-      "Fresh Pakistani oranges and Kinnow for international fruit buyers and distributors.",
+      "Fresh oranges and Kinnow for international fruit buyers, wholesalers, and distributors.",
     description:
-      "Fresh Pakistani oranges and Kinnow sourced for commercial markets. Availability, grade, packaging, quantity, season, and destination requirements can be discussed through the quotation process.",
+      "Fresh oranges and Kinnow sourced for commercial markets. Availability, grade, packaging, quantity, season, origin, and destination requirements can be discussed through the quotation process.",
     types: ["Kinnow", "Fresh Oranges"],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Fresh Fruit" },
     ],
     applications: [
@@ -286,8 +287,8 @@ export const categories: ProductCategory[] = [
       "Food service",
     ],
     features: [
-      "Pakistan origin",
       "Seasonal supply",
+      "International sourcing",
       "Commercial quantities",
     ],
     visual: {
@@ -304,16 +305,16 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Fresh Produce",
     shortDescription:
-      "Fresh Pakistani vegetables including onions and potatoes for commercial and international buyers.",
+      "Fresh vegetables including onions, potatoes, and seasonal produce for commercial buyers.",
     description:
-      "Fresh Pakistani vegetables available for commercial buyers and international markets. Product selection, season, grade, packaging, quantity, and destination can be confirmed during inquiry.",
+      "Fresh vegetables available through international sourcing networks for commercial buyers and international markets. Product selection, season, grade, packaging, quantity, origin, and destination can be confirmed during inquiry.",
     types: [
       "Onions",
       "Potatoes",
       "Seasonal Vegetables",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Fresh Produce" },
     ],
     applications: [
@@ -343,7 +344,7 @@ export const categories: ProductCategory[] = [
     shortDescription:
       "Halal meat supply for approved international buyers, distributors, and food businesses.",
     description:
-      "Halal meat inquiries can be supported for suitable international markets, subject to applicable import, veterinary, food safety, halal certification, and destination-country requirements.",
+      "Halal meat inquiries can be supported through suitable international supplier networks, subject to applicable import, veterinary, food safety, halal certification, and destination-country requirements.",
     types: [
       "Beef",
       "Buffalo Meat",
@@ -351,7 +352,7 @@ export const categories: ProductCategory[] = [
       "Goat Meat",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Meat Products" },
     ],
     applications: [
@@ -379,16 +380,16 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Seafood",
     shortDescription:
-      "Fish and seafood products for commercial importers, distributors, and international markets.",
+      "Fish and seafood products for commercial importers, distributors, food businesses, and international markets.",
     description:
-      "Seafood inquiries can be handled for commercial buyers seeking fish and other seafood products. Product type, processing, freezing, packaging, quantity, destination, and applicable import requirements can be reviewed.",
+      "Seafood inquiries can be handled for commercial buyers seeking fish and other seafood products. Product type, processing, freezing, packaging, quantity, origin, destination, and applicable import requirements can be reviewed.",
     types: [
       "Fish",
       "Shrimp & Prawns",
       "Frozen Seafood",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Seafood" },
     ],
     applications: [
@@ -415,9 +416,9 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Grains & Pulses",
     shortDescription:
-      "Pakistani grains, pulses, and agricultural commodities for commercial buyers.",
+      "Grains, pulses, and agricultural commodities for wholesalers, food manufacturers, distributors, and international buyers.",
     description:
-      "Grains and pulses can be sourced for wholesalers, distributors, food manufacturers, and international buyers. Product, grade, quantity, packaging, and destination requirements can be discussed during inquiry.",
+      "Grains and pulses can be sourced through international supplier networks for wholesalers, distributors, food manufacturers, and international buyers. Product, grade, quantity, packaging, origin, and destination requirements can be discussed during inquiry.",
     types: [
       "Maize / Corn",
       "Chickpeas",
@@ -425,7 +426,7 @@ export const categories: ProductCategory[] = [
       "Other Pulses",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Grains & Pulses" },
     ],
     applications: [
@@ -455,8 +456,12 @@ export const categories: ProductCategory[] = [
     shortDescription:
       "Reliable maize and corn supply for food, feed, and industrial applications.",
     description:
-      "Maize and corn inquiries can be handled for buyers seeking agricultural supply for food, feed, or industrial applications. Requirements can be reviewed based on quantity, destination, and intended use.",
+      "Maize and corn inquiries can be handled for buyers seeking agricultural supply for food, feed, or industrial applications. Requirements can be reviewed based on grade, quantity, origin, destination, and intended use.",
     types: ["Food Grade", "Feed Grade"],
+    specifications: [
+      { label: "Supply", value: "Global Sourcing" },
+      { label: "Category", value: "Maize & Corn" },
+    ],
     applications: [
       "Food",
       "Animal Feed",
@@ -465,6 +470,7 @@ export const categories: ProductCategory[] = [
     features: [
       "Suitable for food and feed",
       "Commercial supply inquiries",
+      "International sourcing",
     ],
     visual: {
       label: "Maize",
@@ -480,11 +486,11 @@ export const categories: ProductCategory[] = [
     categorySlug: "agriculture",
     tradeSegment: "Textiles",
     shortDescription:
-      "Pakistani cotton towels and home textile products for international buyers.",
+      "Cotton towels and home textile products for wholesalers, distributors, hospitality businesses, and international buyers.",
     description:
-      "Pakistani towels and selected home textile products can be sourced for wholesalers, distributors, hospitality businesses, and international buyers. Specifications, sizes, GSM, packaging, and quantities can be discussed.",
+      "Towels and selected home textile products can be sourced through international supplier networks. Specifications, sizes, GSM, packaging, origin, and quantities can be discussed according to buyer requirements.",
     image: "/products/towels.jpg",
-    imageAlt: "Pakistani towels and home textiles for international trade",
+    imageAlt: "Towels and home textiles for international trade",
     types: [
       "Bath Towels",
       "Hand Towels",
@@ -492,7 +498,7 @@ export const categories: ProductCategory[] = [
       "Home Textiles",
     ],
     specifications: [
-      { label: "Origin", value: "Pakistan" },
+      { label: "Supply", value: "Global Sourcing" },
       { label: "Category", value: "Textiles" },
     ],
     applications: [
@@ -565,4 +571,3 @@ export function getProductHref(product: Product) {
 export function getPrimaryProductImage(product: Product) {
   return product.images?.[0] ?? product.image;
 }
-
