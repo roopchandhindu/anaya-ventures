@@ -38,9 +38,6 @@ export function SiteFooter({ productLinks }: SiteFooterProps) {
             <Link href="/" className="transition hover:text-white">
               Home
             </Link>
-            <Link href="/about" className="transition hover:text-white">
-              About
-            </Link>
             <Link href="/products" className="transition hover:text-white">
               Products
             </Link>

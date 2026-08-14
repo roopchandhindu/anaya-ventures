@@ -72,8 +72,6 @@ export default function Products() {
         text="Tell us which product you need, the approximate quantity, and destination so the inquiry can be reviewed clearly."
         primaryHref="/contact"
         primaryLabel="Contact Us"
-        secondaryHref="/about"
-        secondaryLabel="About ARP Ventures"
       />
     </main>
   );

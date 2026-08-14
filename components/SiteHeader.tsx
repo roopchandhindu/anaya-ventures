@@ -15,7 +15,6 @@ type SiteHeaderProps = {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 

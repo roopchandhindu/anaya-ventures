@@ -159,12 +159,7 @@ export default function Home() {
               to expand as more verified company and product information becomes
               available.
             </p>
-            <Link
-              href="/about"
-              className="mt-6 inline-flex items-center justify-center rounded-md bg-[#224b2f] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2f7d44] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
-            >
-              Learn About Us
-            </Link>
+
           </div>
         </div>
       </section>
