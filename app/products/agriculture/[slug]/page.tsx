@@ -58,7 +58,10 @@ export default async function ProductDetailPage({
             className="flex flex-wrap items-center gap-2 text-sm text-[#667467]"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="transition hover:text-[#224b2f]">
+            <Link
+              href="/"
+              className="transition hover:text-[#224b2f]"
+            >
               Home
             </Link>
 
@@ -68,7 +71,7 @@ export default async function ProductDetailPage({
               href="/products"
               className="transition hover:text-[#224b2f]"
             >
-              Trade
+              Products
             </Link>
 
             <span aria-hidden="true">/</span>
@@ -77,7 +80,7 @@ export default async function ProductDetailPage({
               href="/products/agriculture"
               className="transition hover:text-[#224b2f]"
             >
-              Import & Export
+              Agriculture
             </Link>
 
             <span aria-hidden="true">/</span>
@@ -89,7 +92,7 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* Product Hero */}
+      {/* Product Header */}
       <section className="px-6 pb-16 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
@@ -108,7 +111,11 @@ export default async function ProductDetailPage({
                     className="aspect-square overflow-hidden rounded-md border border-[#dfe8dc]"
                   >
                     <ProductImage
-                      product={{ ...product, image, images: [] }}
+                      product={{
+                        ...product,
+                        image,
+                        images: [],
+                      }}
                     />
                   </div>
                 ))}
@@ -154,10 +161,11 @@ export default async function ProductDetailPage({
                 href="/products/agriculture"
                 className="inline-flex items-center justify-center rounded-md border border-[#cddac8] px-5 py-3 text-sm font-semibold text-[#224b2f] transition hover:border-[#2f7d44] hover:bg-[#f4f8f1] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
               >
-                Back to Trade Products
+                Back to Agriculture
               </Link>
             </div>
 
+            {/* Available Types */}
             {product.types.length > 0 && (
               <section className="mt-10">
                 <h2 className="text-xl font-semibold text-[#18241d]">
@@ -180,68 +188,125 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      {/* Commercial Trade Information */}
-      <section className="bg-[#f4f8f1] px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c9902f]">
-              Commercial Trade Information
-            </p>
+      {/* Sourcing & Delivery */}
+      {(product.origins || product.deliveryTerms) && (
+        <section className="bg-[#f4f8f1] px-6 py-16 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2f7d44]">
+                Global Sourcing
+              </p>
 
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d]">
-              International Supply & Trade
-            </h2>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#18241d]">
+                Sourcing & Delivery Options
+              </h2>
 
-            <p className="mt-4 leading-7 text-[#526158]">
-              Commercial requirements can be discussed based on product
-              specifications, quantity, destination, packaging, and preferred
-              delivery terms.
-            </p>
-          </div>
+              <p className="mt-4 leading-7 text-[#526158]">
+                Origin and loading port options may vary according to
+                supplier availability, product specifications, quantity,
+                and destination. Contact ARP Ventures for a current
+                quotation.
+              </p>
+            </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {product.specifications?.map((specification) => (
-              <div
-                key={specification.label}
-                className="rounded-xl border border-[#d9dfd5] bg-white p-5 shadow-sm"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#718073]">
-                  {specification.label}
-                </p>
+            <div className="mt-10 grid gap-6 lg:grid-cols-[1.4fr_0.8fr]">
+              {/* Origins and Ports */}
+              {product.origins && product.origins.length > 0 && (
+                <div className="rounded-xl border border-[#d9e2d5] bg-white p-6 shadow-sm">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#c9902f]">
+                        Origin & Ports
+                      </p>
 
-                <p className="mt-2 text-base font-semibold text-[#18241d]">
-                  {specification.value}
-                </p>
-              </div>
-            ))}
-          </div>
+                      <h3 className="mt-2 text-xl font-semibold text-[#18241d]">
+                        Available Sourcing Options
+                      </h3>
+                    </div>
 
-          <div className="mt-8 rounded-xl border border-[#d9dfd5] bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div>
-                <h3 className="text-xl font-semibold text-[#18241d]">
-                  Looking for a commercial quotation?
-                </h3>
+                    <span className="hidden text-2xl sm:block">
+                      🌍
+                    </span>
+                  </div>
 
-                <p className="mt-2 text-sm leading-6 text-[#526158]">
-                  Share your required quantity, destination, and preferred
-                  delivery terms with our trading team.
-                </p>
-              </div>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {product.origins.map((origin) => (
+                      <div
+                        key={origin.country}
+                        className="rounded-lg border border-[#dfe8dc] bg-[#fbfcf8] p-5"
+                      >
+                        <h4 className="font-semibold text-[#18241d]">
+                          {origin.country}
+                        </h4>
 
-              <Link
-                href={{
-                  pathname: "/contact",
-                  query: { product: product.name },
-                }}
-                className="inline-flex shrink-0 items-center justify-center rounded-md bg-[#224b2f] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2f7d44] focus:outline-none focus:ring-2 focus:ring-[#c9902f] focus:ring-offset-2"
-              >
-                Request Commercial Quote
-              </Link>
+                        <p className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#667467]">
+                          Loading Ports
+                        </p>
+
+                        <ul className="mt-2 space-y-1">
+                          {origin.ports.map((port) => (
+                            <li
+                              key={port}
+                              className="text-sm text-[#526158]"
+                            >
+                              • {port}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 rounded-md bg-[#f7efe2] px-4 py-3 text-sm leading-6 text-[#6f5525]">
+                    <strong>Note:</strong> Final origin and loading port
+                    are confirmed at quotation stage based on supplier
+                    availability and buyer requirements.
+                  </div>
+                </div>
+              )}
+
+              {/* Delivery Terms */}
+              {product.deliveryTerms &&
+                product.deliveryTerms.length > 0 && (
+                  <div className="rounded-xl border border-[#d9e2d5] bg-white p-6 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#c9902f]">
+                      Delivery
+                    </p>
+
+                    <h3 className="mt-2 text-xl font-semibold text-[#18241d]">
+                      Trade Terms
+                    </h3>
+
+                    <div className="mt-6 grid gap-3">
+                      {product.deliveryTerms.map((term) => (
+                        <div
+                          key={term}
+                          className="rounded-lg border border-[#dfe8dc] bg-[#fbfcf8] px-4 py-4"
+                        >
+                          <span className="font-bold text-[#224b2f]">
+                            {term}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-6">
+                      <p className="text-sm font-semibold text-[#18241d]">
+                        Destination
+                      </p>
+
+                      <p className="mt-2 text-sm leading-6 text-[#526158]">
+                        Buyer may specify the preferred destination
+                        port. Freight and final delivery terms will be
+                        quoted accordingly.
+                      </p>
+                    </div>
+                  </div>
+                )}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Product Overview */}
       <section className="bg-white px-6 py-16 lg:px-8">
@@ -261,6 +326,34 @@ export default async function ProductDetailPage({
               {product.description}
             </p>
 
+            {/* Specifications */}
+            {product.specifications &&
+              product.specifications.length > 0 && (
+                <section>
+                  <h3 className="text-xl font-semibold text-[#18241d]">
+                    Product Specifications
+                  </h3>
+
+                  <dl className="mt-4 divide-y divide-[#dfe8dc] rounded-lg border border-[#dfe8dc] bg-[#fbfcf8]">
+                    {product.specifications.map((specification) => (
+                      <div
+                        key={specification.label}
+                        className="grid gap-1 px-4 py-3 sm:grid-cols-[10rem_1fr]"
+                      >
+                        <dt className="text-sm font-semibold text-[#405249]">
+                          {specification.label}
+                        </dt>
+
+                        <dd className="text-sm text-[#526158]">
+                          {specification.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              )}
+
+            {/* Applications */}
             {product.applications &&
               product.applications.length > 0 && (
                 <section>
@@ -281,33 +374,37 @@ export default async function ProductDetailPage({
                 </section>
               )}
 
-            {product.features && product.features.length > 0 && (
-              <section>
-                <h3 className="text-xl font-semibold text-[#18241d]">
-                  Features
-                </h3>
+            {/* Features */}
+            {product.features &&
+              product.features.length > 0 && (
+                <section>
+                  <h3 className="text-xl font-semibold text-[#18241d]">
+                    Features
+                  </h3>
 
-                <ul className="mt-4 grid gap-3">
-                  {product.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="border-l-4 border-[#c9902f] bg-[#fbfcf8] px-4 py-3 text-sm text-[#405249]"
-                    >
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+                  <ul className="mt-4 grid gap-3">
+                    {product.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="border-l-4 border-[#c9902f] bg-[#fbfcf8] px-4 py-3 text-sm text-[#405249]"
+                      >
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CTA */}
       <CTASection
         title={`Request a quote for ${product.name}`}
-        text="Send the product name, quantity, destination, and any specifications so ARP Ventures can review your requirement."
-        primaryHref={`/contact?product=${encodeURIComponent(product.name)}`}
+        text="Send the product name, quantity, destination, preferred origin if applicable, and delivery term so ARP Ventures can review your requirement."
+        primaryHref={`/contact?product=${encodeURIComponent(
+          product.name,
+        )}`}
         primaryLabel="Request a Quote"
         secondaryHref="/products"
         secondaryLabel="View All Products"

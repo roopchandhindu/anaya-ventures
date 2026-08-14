@@ -19,17 +19,25 @@ export type Product = {
   slug: string;
   name: string;
   categorySlug: string;
+
   shortDescription: string;
   description: string;
+
   image?: string;
   images?: string[];
   imageAlt?: string;
+
   tradeSegment?: string;
+
   types: string[];
+
+  origins?: ProductOrigin[];
+  deliveryTerms?: string[];
+
   specifications?: ProductSpecification[];
   applications?: string[];
   features?: string[];
-  origins?: ProductOrigin[];
+
   visual: ProductVisual;
 };
 
@@ -44,6 +52,10 @@ export type ProductCategoryWithProducts = ProductCategory & {
   products: Product[];
 };
 
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
 export const categories: ProductCategory[] = [
   {
     slug: "agriculture",
@@ -53,49 +65,62 @@ export const categories: ProductCategory[] = [
     description:
       "ARP Ventures facilitates international trade and sourcing opportunities across a growing range of commodities and products, connecting buyers and suppliers through a global network and reliable commercial trade support.",
   },
+
   {
     slug: "financial",
     name: "Financial",
     shortDescription:
       "Financial services and solutions for individuals and businesses.",
     description:
-      "Comprehensive financial services tailored to meet diverse investment and business financing needs.",
+      "Financial services and solutions tailored to meet diverse investment and business financing needs.",
   },
+
   {
     slug: "residence-consultancy",
     name: "Residence Consultancy",
     shortDescription:
       "Expert guidance for residential relocation and settlement services.",
     description:
-      "Professional residence consultancy services to assist with visa applications, relocation, and settlement in various countries.",
+      "Professional residence consultancy services to assist with relocation, visa applications, and settlement requirements.",
   },
+
   {
     slug: "education",
     name: "Education",
     shortDescription:
       "Educational opportunities and academic support services.",
     description:
-      "Quality educational programs and consultancy services for students seeking academic excellence and international opportunities.",
+      "Educational programs and consultancy services for students seeking academic and international opportunities.",
   },
+
   {
     slug: "health",
     name: "Health",
     shortDescription:
-      "Healthcare services and wellness solutions for better living.",
+      "Healthcare services and wellness solutions.",
     description:
-      "Professional health and wellness services designed to promote optimal health outcomes and quality of life.",
+      "Health and wellness services designed to support better living and wellbeing.",
   },
+
   {
     slug: "others",
     name: "Others",
     shortDescription:
       "Additional services and products beyond our core categories.",
     description:
-      "Diverse range of services and products to meet various business and personal needs.",
+      "A range of additional services and products to meet business and personal requirements.",
   },
 ];
 
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
 export const products: Product[] = [
+  /* =======================================================
+     PKE
+  ======================================================= */
+
   {
     slug: "palm-kernel-expeller",
     name: "Palm Kernel Expeller (PKE)",
@@ -103,16 +128,48 @@ export const products: Product[] = [
     tradeSegment: "Animal Feed",
 
     shortDescription:
-      "Quality Palm Kernel Expeller (PKE) for animal feed manufacturers, distributors, and international commodity buyers.",
+      "Palm Kernel Expeller (PKE) for animal feed manufacturers, feed mills, distributors, and international commodity buyers.",
 
     description:
-      "Palm Kernel Expeller sourced through established supplier networks in major producing markets. ARP Ventures supports commercial enquiries based on quantity, destination, packaging, specifications, and preferred delivery terms.",
+      "Palm Kernel Expeller sourced through established supplier networks for commercial animal feed and agricultural applications. Availability, origin, loading port, quantity, specifications, packaging, destination, and delivery terms can be discussed according to buyer requirements.",
 
     image: "/products/pke.jpg",
     imageAlt:
-      "Palm Kernel Expeller (PKE) for international commodity trade",
+      "Palm Kernel Expeller PKE for international commodity trade",
 
-    types: ["Feed Grade", "Bulk Supply", "Commercial Grade"],
+    types: [
+      "Feed Grade",
+      "Bulk Supply",
+      "Commercial Grade",
+    ],
+
+    origins: [
+      {
+        country: "Malaysia",
+        ports: [
+          "Port Klang",
+          "Pasir Gudang",
+          "Penang",
+          "Other Malaysian Ports",
+        ],
+      },
+      {
+        country: "Indonesia",
+        ports: [
+          "Belawan",
+          "Dumai",
+          "Tanjung Priok",
+          "Tanjung Perak",
+          "Other Indonesian Ports",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
       {
@@ -124,12 +181,20 @@ export const products: Product[] = [
         value: "Animal Feed",
       },
       {
+        label: "Origin",
+        value: "Malaysia / Indonesia",
+      },
+      {
+        label: "Loading Port",
+        value: "Subject to availability and quotation",
+      },
+      {
         label: "Supply",
         value: "Commercial Quantities",
       },
       {
         label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -143,32 +208,11 @@ export const products: Product[] = [
 
     features: [
       "Commercial bulk supply",
-      "Multiple sourcing markets",
-      "Suitable for international buyers",
-      "Packaging and shipment terms can be discussed",
-      "Port and delivery options subject to quotation",
-    ],
-
-    origins: [
-      {
-        country: "Malaysia",
-        ports: [
-          "Port Klang",
-          "Penang Port",
-          "Pasir Gudang Port",
-          "Port of Tanjung Pelepas",
-        ],
-      },
-      {
-        country: "Indonesia",
-        ports: [
-          "Belawan Port",
-          "Dumai Port",
-          "Tanjung Priok Port",
-          "Tanjung Perak Port",
-          "Kuala Tanjung Port",
-        ],
-      },
+      "Malaysia and Indonesia sourcing options",
+      "Multiple loading port options",
+      "International buyer enquiries",
+      "Flexible delivery terms",
+      "Destination-based quotation",
     ],
 
     visual: {
@@ -179,6 +223,10 @@ export const products: Product[] = [
     },
   },
 
+  /* =======================================================
+     PALM OIL
+  ======================================================= */
+
   {
     slug: "palm-oil",
     name: "Palm Oil",
@@ -186,41 +234,19 @@ export const products: Product[] = [
     tradeSegment: "Edible Oils",
 
     shortDescription:
-      "Commercial palm oil supply for food, manufacturing, distribution, and international markets.",
+      "Commercial palm oil supply for food manufacturers, distributors, traders, and international buyers.",
 
     description:
-      "Palm oil sourced through qualified international supplier networks for commercial buyers, distributors, manufacturers, and international markets.",
+      "Palm oil sourced through international supplier networks for commercial buyers. Product grade, origin, quantity, packaging, destination, and delivery terms can be discussed during the quotation process.",
 
     image: "/products/palm-oil.jpg",
     imageAlt: "Palm oil for international trade",
 
-    types: ["Edible Oil", "Industrial Applications"],
-
-    specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
-      {
-        label: "Category",
-        value: "Palm Oil",
-      },
-      {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
-      },
-    ],
-
-    applications: [
-      "Food manufacturing",
-      "Edible oil distribution",
-      "Industrial applications",
-    ],
-
-    features: [
-      "International sourcing",
-      "Commercial supply",
-      "Buyer-specific specifications",
+    types: [
+      "Crude Palm Oil",
+      "Refined Palm Oil",
+      "Edible Palm Oil",
+      "Industrial Grade",
     ],
 
     origins: [
@@ -228,19 +254,60 @@ export const products: Product[] = [
         country: "Malaysia",
         ports: [
           "Port Klang",
-          "Pasir Gudang Port",
-          "Penang Port",
+          "Pasir Gudang",
+          "Penang",
+          "Other Malaysian Ports",
         ],
       },
       {
         country: "Indonesia",
         ports: [
-          "Dumai Port",
-          "Belawan Port",
-          "Tanjung Priok Port",
-          "Tanjung Perak Port",
+          "Dumai",
+          "Belawan",
+          "Tanjung Priok",
+          "Tanjung Perak",
+          "Other Indonesian Ports",
         ],
       },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
+
+    specifications: [
+      {
+        label: "Category",
+        value: "Palm Oil",
+      },
+      {
+        label: "Origin",
+        value: "Malaysia / Indonesia",
+      },
+      {
+        label: "Supply",
+        value: "Commercial Quantities",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
+      },
+    ],
+
+    applications: [
+      "Food manufacturing",
+      "Edible oil distribution",
+      "Food processing",
+      "Industrial applications",
+    ],
+
+    features: [
+      "International sourcing",
+      "Commercial supply",
+      "Multiple origin options",
+      "Buyer-specific specifications",
     ],
 
     visual: {
@@ -250,6 +317,10 @@ export const products: Product[] = [
       accent: "#234f34",
     },
   },
+
+  /* =======================================================
+     RICE
+  ======================================================= */
 
   {
     slug: "rice",
@@ -261,25 +332,59 @@ export const products: Product[] = [
       "Premium Basmati and non-Basmati rice for wholesalers, distributors, food businesses, and international buyers.",
 
     description:
-      "Premium rice sourced through international supplier networks for commercial buyers. Basmati and non-Basmati varieties can be discussed according to grade, packaging, quantity, destination, and buyer requirements.",
+      "Premium rice sourced through international supplier networks. Basmati and non-Basmati varieties can be discussed according to grade, origin, packaging, quantity, destination, and buyer requirements.",
 
     image: "/products/rice.jpg",
     imageAlt: "Premium rice for international trade",
 
-    types: ["Basmati", "Non-Basmati"],
+    types: [
+      "Basmati",
+      "Non-Basmati",
+      "Long Grain",
+      "Parboiled",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Port Qasim",
+          "Karachi Port",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Kandla",
+          "Nhava Sheva",
+          "Other Indian Ports",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
       {
         label: "Category",
         value: "Rice",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Origin",
+        value: "Pakistan / India",
+      },
+      {
+        label: "Supply",
+        value: "Commercial Quantities",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -287,32 +392,15 @@ export const products: Product[] = [
       "Wholesale distribution",
       "Food service",
       "Retail",
+      "Food processing",
       "International markets",
     ],
 
     features: [
-      "Global supplier network",
       "Basmati and non-Basmati options",
+      "International supplier network",
       "Commercial quantities",
-    ],
-
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Port Qasim", "Karachi Port"],
-      },
-      {
-        country: "India",
-        ports: ["Mundra Port", "Nhava Sheva Port"],
-      },
-      {
-        country: "Thailand",
-        ports: ["Laem Chabang Port", "Bangkok Port"],
-      },
-      {
-        country: "Vietnam",
-        ports: ["Cat Lai Port", "Cai Mep Port"],
-      },
+      "Buyer-specific specifications",
     ],
 
     visual: {
@@ -322,6 +410,10 @@ export const products: Product[] = [
       accent: "#315a39",
     },
   },
+
+  /* =======================================================
+     SPICES
+  ======================================================= */
 
   {
     slug: "spices",
@@ -333,7 +425,7 @@ export const products: Product[] = [
       "Spices and herbs for food manufacturers, wholesalers, distributors, and international buyers.",
 
     description:
-      "A range of spices and herbs available through international sourcing networks. Product selection, grade, packaging, quantity, origin, and destination can be discussed according to buyer requirements.",
+      "A range of spices and herbs available through international sourcing networks. Product selection, grade, origin, packaging, quantity, destination, and delivery terms can be discussed according to buyer requirements.",
 
     types: [
       "Red Chilli",
@@ -343,18 +435,42 @@ export const products: Product[] = [
       "Fennel",
     ],
 
-    specifications: [
+    origins: [
       {
-        label: "Supply",
-        value: "Global Sourcing",
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
       },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Nhava Sheva",
+          "Other Indian Ports",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
+
+    specifications: [
       {
         label: "Category",
         value: "Spices & Herbs",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Supply",
+        value: "Global Sourcing",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -363,23 +479,14 @@ export const products: Product[] = [
       "Wholesale",
       "Restaurants",
       "Retail",
+      "Food processing",
     ],
 
     features: [
-      "International supplier network",
       "Multiple spice varieties",
+      "International supplier network",
       "Commercial buyer enquiries",
-    ],
-
-    origins: [
-      {
-        country: "India",
-        ports: ["Mundra Port", "Nhava Sheva Port"],
-      },
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
+      "Flexible sourcing options",
     ],
 
     visual: {
@@ -389,6 +496,10 @@ export const products: Product[] = [
       accent: "#35633c",
     },
   },
+
+  /* =======================================================
+     MANGOES
+  ======================================================= */
 
   {
     slug: "mangoes",
@@ -405,20 +516,52 @@ export const products: Product[] = [
     image: "/products/mangoes.jpg",
     imageAlt: "Fresh mangoes for international trade",
 
-    types: ["Commercial Grade", "Export Grade"],
+    types: [
+      "Export Grade",
+      "Commercial Grade",
+      "Premium Grade",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Nhava Sheva",
+          "Other Indian Ports",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Seasonal Global Sourcing",
-      },
       {
         label: "Category",
         value: "Fresh Fruit",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Origin",
+        value: "Pakistan / India",
+      },
+      {
+        label: "Supply",
+        value: "Seasonal",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -433,17 +576,7 @@ export const products: Product[] = [
       "Seasonal availability",
       "International sourcing",
       "Commercial export enquiries",
-    ],
-
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "India",
-        ports: ["Nhava Sheva Port", "Mundra Port"],
-      },
+      "Buyer-specific packing options",
     ],
 
     visual: {
@@ -453,6 +586,10 @@ export const products: Product[] = [
       accent: "#256d39",
     },
   },
+
+  /* =======================================================
+     KINNOW
+  ======================================================= */
 
   {
     slug: "oranges-kinnow",
@@ -464,22 +601,49 @@ export const products: Product[] = [
       "Fresh oranges and Kinnow for international fruit buyers, wholesalers, and distributors.",
 
     description:
-      "Fresh oranges and Kinnow sourced for commercial markets. Availability, grade, packaging, quantity, season, origin, and destination requirements can be discussed through the quotation process.",
+      "Fresh oranges and Kinnow sourced for commercial markets. Availability, grade, packaging, quantity, season, origin, destination, and delivery terms can be discussed through the quotation process.",
 
-    types: ["Kinnow", "Fresh Oranges"],
+    types: [
+      "Kinnow",
+      "Fresh Oranges",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Nhava Sheva",
+          "Other Indian Ports",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Seasonal Global Sourcing",
-      },
       {
         label: "Category",
         value: "Fresh Fruit",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Origin",
+        value: "Pakistan / India",
+      },
+      {
+        label: "Supply",
+        value: "Seasonal",
       },
     ],
 
@@ -495,17 +659,6 @@ export const products: Product[] = [
       "Commercial quantities",
     ],
 
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "Egypt",
-        ports: ["Alexandria Port", "Port Said"],
-      },
-    ],
-
     visual: {
       label: "Kinnow",
       from: "#ffe0a8",
@@ -513,6 +666,10 @@ export const products: Product[] = [
       accent: "#2f6d44",
     },
   },
+
+  /* =======================================================
+     VEGETABLES
+  ======================================================= */
 
   {
     slug: "fresh-vegetables",
@@ -524,22 +681,49 @@ export const products: Product[] = [
       "Fresh vegetables including onions, potatoes, and seasonal produce for commercial buyers.",
 
     description:
-      "Fresh vegetables available through international sourcing networks for commercial buyers and international markets. Product selection, season, grade, packaging, quantity, origin, and destination can be confirmed during inquiry.",
+      "Fresh vegetables available through international sourcing networks for commercial buyers and international markets. Product selection, season, grade, packaging, quantity, origin, destination, and delivery terms can be confirmed during inquiry.",
 
-    types: ["Onions", "Potatoes", "Seasonal Vegetables"],
+    types: [
+      "Onions",
+      "Potatoes",
+      "Seasonal Vegetables",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Nhava Sheva",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
       {
         label: "Category",
         value: "Fresh Produce",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Supply",
+        value: "Seasonal / Commercial",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -556,17 +740,6 @@ export const products: Product[] = [
       "International buyer enquiries",
     ],
 
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "India",
-        ports: ["Mundra Port", "Nhava Sheva Port"],
-      },
-    ],
-
     visual: {
       label: "Vegetables",
       from: "#dcebcf",
@@ -574,6 +747,10 @@ export const products: Product[] = [
       accent: "#28583a",
     },
   },
+
+  /* =======================================================
+     HALAL MEAT
+  ======================================================= */
 
   {
     slug: "meat",
@@ -585,22 +762,50 @@ export const products: Product[] = [
       "Halal meat supply for approved international buyers, distributors, and food businesses.",
 
     description:
-      "Halal meat inquiries can be supported through suitable international supplier networks, subject to applicable import, veterinary, food safety, halal certification, and destination-country requirements.",
+      "Halal meat inquiries can be supported through suitable supplier networks, subject to applicable import, veterinary, food safety, halal certification, and destination-country requirements.",
 
-    types: ["Beef", "Buffalo Meat", "Mutton", "Goat Meat"],
+    types: [
+      "Beef",
+      "Buffalo Meat",
+      "Mutton",
+      "Goat Meat",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Nhava Sheva",
+          "Mundra",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
       {
         label: "Category",
         value: "Meat Products",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Certification",
+        value: "Subject to destination requirements",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -617,17 +822,6 @@ export const products: Product[] = [
       "Subject to destination requirements",
     ],
 
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "Australia",
-        ports: ["Melbourne", "Sydney", "Fremantle"],
-      },
-    ],
-
     visual: {
       label: "Halal Meat",
       from: "#ead6ce",
@@ -635,6 +829,10 @@ export const products: Product[] = [
       accent: "#28563a",
     },
   },
+
+  /* =======================================================
+     SEAFOOD
+  ======================================================= */
 
   {
     slug: "seafood",
@@ -648,20 +846,54 @@ export const products: Product[] = [
     description:
       "Seafood inquiries can be handled for commercial buyers seeking fish and other seafood products. Product type, processing, freezing, packaging, quantity, origin, destination, and applicable import requirements can be reviewed.",
 
-    types: ["Fish", "Shrimp & Prawns", "Frozen Seafood"],
+    types: [
+      "Fish",
+      "Shrimp & Prawns",
+      "Frozen Seafood",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Nhava Sheva",
+          "Mundra",
+        ],
+      },
+      {
+        country: "Indonesia",
+        ports: [
+          "Tanjung Priok",
+          "Tanjung Perak",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
       {
         label: "Category",
         value: "Seafood",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Supply",
+        value: "Fresh / Frozen",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -673,23 +905,8 @@ export const products: Product[] = [
 
     features: [
       "Commercial supply enquiries",
-      "Fresh or frozen requirements can be discussed",
+      "Fresh or frozen requirements",
       "International markets",
-    ],
-
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "Indonesia",
-        ports: ["Jakarta", "Surabaya", "Belawan"],
-      },
-      {
-        country: "Vietnam",
-        ports: ["Cat Lai", "Cai Mep"],
-      },
     ],
 
     visual: {
@@ -699,6 +916,10 @@ export const products: Product[] = [
       accent: "#285b45",
     },
   },
+
+  /* =======================================================
+     GRAINS & PULSES
+  ======================================================= */
 
   {
     slug: "grains-pulses",
@@ -710,7 +931,7 @@ export const products: Product[] = [
       "Grains, pulses, and agricultural commodities for wholesalers, food manufacturers, distributors, and international buyers.",
 
     description:
-      "Grains and pulses can be sourced through international supplier networks for wholesalers, distributors, food manufacturers, and international buyers.",
+      "Grains and pulses can be sourced through international supplier networks for wholesalers, distributors, food manufacturers, and international buyers. Product, grade, quantity, packaging, origin, destination, and delivery terms can be discussed during inquiry.",
 
     types: [
       "Maize / Corn",
@@ -719,18 +940,42 @@ export const products: Product[] = [
       "Other Pulses",
     ],
 
-    specifications: [
+    origins: [
       {
-        label: "Supply",
-        value: "Global Sourcing",
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
       },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Kandla",
+          "Nhava Sheva",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
+
+    specifications: [
       {
         label: "Category",
         value: "Grains & Pulses",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Supply",
+        value: "Commercial Quantities",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -747,21 +992,6 @@ export const products: Product[] = [
       "International buyer enquiries",
     ],
 
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "India",
-        ports: ["Mundra Port", "Nhava Sheva Port"],
-      },
-      {
-        country: "Australia",
-        ports: ["Melbourne", "Fremantle", "Brisbane"],
-      },
-    ],
-
     visual: {
       label: "Grains",
       from: "#eee0b9",
@@ -769,6 +999,10 @@ export const products: Product[] = [
       accent: "#38603e",
     },
   },
+
+  /* =======================================================
+     MAIZE
+  ======================================================= */
 
   {
     slug: "maize-corn",
@@ -780,22 +1014,67 @@ export const products: Product[] = [
       "Reliable maize and corn supply for food, feed, and industrial applications.",
 
     description:
-      "Maize and corn inquiries can be handled for buyers seeking agricultural supply for food, feed, or industrial applications.",
+      "Maize and corn inquiries can be handled for buyers seeking agricultural supply for food, feed, or industrial applications. Requirements can be reviewed based on grade, quantity, origin, destination, and intended use.",
 
-    types: ["Food Grade", "Feed Grade"],
+    types: [
+      "Food Grade",
+      "Feed Grade",
+    ],
+
+    origins: [
+      {
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
+      },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Kandla",
+          "Nhava Sheva",
+        ],
+      },
+      {
+        country: "Argentina",
+        ports: [
+          "Rosario",
+          "Bahía Blanca",
+        ],
+      },
+      {
+        country: "Brazil",
+        ports: [
+          "Santos",
+          "Paranaguá",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
 
     specifications: [
-      {
-        label: "Supply",
-        value: "Global Sourcing",
-      },
       {
         label: "Category",
         value: "Maize & Corn",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Application",
+        value: "Food / Feed / Industrial",
+      },
+      {
+        label: "Supply",
+        value: "Commercial Quantities",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -808,22 +1087,8 @@ export const products: Product[] = [
     features: [
       "Suitable for food and feed",
       "Commercial supply enquiries",
+      "Multiple origin options",
       "International sourcing",
-    ],
-
-    origins: [
-      {
-        country: "Brazil",
-        ports: ["Santos Port", "Paranagua Port"],
-      },
-      {
-        country: "Argentina",
-        ports: ["Rosario Port", "Bahia Blanca"],
-      },
-      {
-        country: "Australia",
-        ports: ["Brisbane", "Melbourne"],
-      },
     ],
 
     visual: {
@@ -833,6 +1098,10 @@ export const products: Product[] = [
       accent: "#2e6438",
     },
   },
+
+  /* =======================================================
+     TEXTILES
+  ======================================================= */
 
   {
     slug: "textiles-towels",
@@ -844,7 +1113,7 @@ export const products: Product[] = [
       "Cotton towels and home textile products for wholesalers, distributors, hospitality businesses, and international buyers.",
 
     description:
-      "Towels and selected home textile products can be sourced through international supplier networks. Specifications, sizes, GSM, packaging, origin, and quantities can be discussed according to buyer requirements.",
+      "Towels and selected home textile products can be sourced through international supplier networks. Specifications, sizes, GSM, packaging, origin, quantities, destination, and delivery terms can be discussed according to buyer requirements.",
 
     image: "/products/towels.jpg",
     imageAlt: "Towels and home textiles for international trade",
@@ -856,18 +1125,48 @@ export const products: Product[] = [
       "Home Textiles",
     ],
 
-    specifications: [
+    origins: [
       {
-        label: "Supply",
-        value: "Global Sourcing",
+        country: "Pakistan",
+        ports: [
+          "Karachi Port",
+          "Port Qasim",
+        ],
       },
+      {
+        country: "India",
+        ports: [
+          "Mundra",
+          "Nhava Sheva",
+        ],
+      },
+      {
+        country: "Bangladesh",
+        ports: [
+          "Chattogram",
+          "Mongla",
+        ],
+      },
+    ],
+
+    deliveryTerms: [
+      "FOB",
+      "CFR",
+      "CIF",
+    ],
+
+    specifications: [
       {
         label: "Category",
         value: "Textiles",
       },
       {
-        label: "Delivery Terms",
-        value: "FOB / CFR / CIF – Subject to Quotation",
+        label: "Supply",
+        value: "Commercial Quantities",
+      },
+      {
+        label: "Delivery",
+        value: "FOB / CFR / CIF",
       },
     ],
 
@@ -882,17 +1181,7 @@ export const products: Product[] = [
       "Cotton textile products",
       "Commercial quantities",
       "Custom specifications can be discussed",
-    ],
-
-    origins: [
-      {
-        country: "Pakistan",
-        ports: ["Karachi Port", "Port Qasim"],
-      },
-      {
-        country: "India",
-        ports: ["Mundra Port", "Nhava Sheva Port"],
-      },
+      "International sourcing",
     ],
 
     visual: {
@@ -903,6 +1192,10 @@ export const products: Product[] = [
     },
   },
 ];
+
+/* =========================================================
+   HELPER FUNCTIONS
+========================================================= */
 
 export function getCategory(slug: string) {
   return categories.find((category) => category.slug === slug);
