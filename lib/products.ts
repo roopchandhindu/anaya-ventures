@@ -47,6 +47,46 @@ export const categories: ProductCategory[] = [
     description:
       "Premium agricultural products sourced with a focus on quality, consistency, and reliable international supply.",
   },
+  {
+    slug: "financial",
+    name: "Financial",
+    shortDescription:
+      "Financial services and solutions for individuals and businesses.",
+    description:
+      "Comprehensive financial services tailored to meet diverse investment and business financing needs.",
+  },
+  {
+    slug: "residence-consultancy",
+    name: "Residence Consultancy",
+    shortDescription:
+      "Expert guidance for residential relocation and settlement services.",
+    description:
+      "Professional residence consultancy services to assist with visa applications, relocation, and settlement in various countries.",
+  },
+  {
+    slug: "education",
+    name: "Education",
+    shortDescription:
+      "Educational opportunities and academic support services.",
+    description:
+      "Quality educational programs and consultancy services for students seeking academic excellence and international opportunities.",
+  },
+  {
+    slug: "health",
+    name: "Health",
+    shortDescription:
+      "Healthcare services and wellness solutions for better living.",
+    description:
+      "Professional health and wellness services designed to promote optimal health outcomes and quality of life.",
+  },
+  {
+    slug: "others",
+    name: "Others",
+    shortDescription:
+      "Additional services and products beyond our core categories.",
+    description:
+      "Diverse range of services and products to meet various business and personal needs.",
+  },
 ];
 
 export const products: Product[] = [
@@ -160,6 +200,26 @@ export const products: Product[] = [
       from: "#e7d0a3",
       to: "#7a5435",
       accent: "#2d5f3a",
+    },
+  },
+  {
+    slug: "agricultural-mix",
+    name: "Agricultural Mix",
+    categorySlug: "agriculture",
+    tradeSegment: "Mixed Products",
+    shortDescription:
+      "Curated mix of premium agricultural products for diverse commercial needs.",
+    description:
+      "Agricultural mix bundles are available for buyers seeking diverse product combinations for international markets. Specific product composition, quantity, destination, and packaging can be customized through inquiry.",
+    image: "/products/mix.png",
+    imageAlt: "Agricultural mix product bundle for commercial inquiries",
+    types: [],
+    features: ["Customizable product mix", "International market ready"],
+    visual: {
+      label: "Mix",
+      from: "#f5e6d3",
+      to: "#9b7c5c",
+      accent: "#2f6d44",
     },
   },
 ];
